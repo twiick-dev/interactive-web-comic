@@ -1,0 +1,181 @@
+html{
+    font-size: 6.25%;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16rem;
+}
+:root{
+    /*Backgrounds*/
+    --background-image: url(https://discover.therookies.co/content/images/2022/09/games---Silke-Van-Der-Smissen-2.jpg);
+    /*Colors*/
+    --white: #FFFFFF;
+    --white-10: #ffffff1a;
+    --white-50: #ffffffa0;
+    --black: #000000;
+    --black-30: #0000006d;
+    --primary:#DFBC4A;
+    --primary-30:#DFBC4A4A;
+    --primary-dark:hsl(46, 70%, 48%);
+    --secondary: #DFBC4A;
+    /*Fonts*/
+    --bebas: 'Bebas Neue', sans-serif;
+    --castoro: 'Castoro', serif;
+    --lato: 'Lato', sans-serif;
+    --satisfy: 'Satisfy', cursive;
+    /*Gradient*/
+    --gray: rgba(214,207,182,1);
+
+}
+/*Scroll bar*/
+::-webkit-scrollbar{
+    width: 6rem;
+}
+::-webkit-scrollbar-track{
+    background: var(--white-10);
+}
+::-webkit-scrollbar-thumb{
+    background: var(--primary);
+    transition: .2s;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: var(--primary-dark);
+    transition: .2s;
+}
+/*hr*/
+hr{
+    margin: 10rem 0;
+    border: none;
+    border-bottom: solid 1rem var(--white);
+}
+/*Styles*/
+.wellcome{
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.message-container{
+    background-color: var(--black-30);
+    width: 500rem;
+    max-width: 500rem;
+    height: 500rem;
+    max-height: 500rem;
+    position: relative;
+    animation: openMessage 1.5s ease-in-out 1;
+}
+@keyframes openMessage {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 500rem;
+    }
+}
+.message-borders{
+    width: 100%;
+    position: absolute;
+    filter: drop-shadow(0 5rem 15rem var(--primary-30));
+    z-index: 2;
+}
+.message-borders.border-top{
+    top: -2rem;
+}
+.message-borders.border-bottom{
+    bottom: -37rem;
+    transform: rotate(180deg);
+}
+.message{
+    width: 100%;
+    height: 100%;
+    padding: 50rem 60rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12rem;
+    backdrop-filter: blur(4rem);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 1;
+    animation: appearMessage 1.5s ease-in-out 1;
+}
+@keyframes appearMessage {
+    0% {
+        height: 0;
+        display: none;
+        opacity: 0;
+    }
+    60%{
+        height: 500rem;
+        display: flex;
+        opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+.message .list{
+    display: flex;
+    flex-direction: column;
+    gap: 12rem;
+}
+.message .list p{
+    display: flex;
+    gap: 20rem;
+}
+.message h1{
+    color: var(--white);
+    font-family: var(--bebas);
+    font-size: 52rem;
+}
+.message p{
+    color: var(--white);
+    font-family: var(--lato);
+    font-size: 16rem;
+    font-weight: 300;
+}
+.message p.quote{
+    width: 100%;
+    padding: 20rem;
+    font-size: 14rem;
+    text-align: center;
+    border: dashed 1rem var(--white);
+}
+.message p.sign{
+    display: flex;
+    flex-direction: column;
+}
+.message p.sign span:nth-child(1){
+    font-family: var(--satisfy);
+    font-size: 28rem;
+}
+.buttons{
+    margin-top: 20rem;
+    margin-bottom: 20rem;
+    display: flex;
+    justify-content: center;
+    gap: 20rem;
+    font-family: var(--lato);
+}
+button{
+    background: none;
+    width: 250rem;
+    height: 40rem;
+    border: solid 2rem transparent;
+}
+.primary-button, .secondary-button{
+    color: var(--white);
+    border: solid 2rem var(--white);
+    border-radius: 8rem;
+    cursor: pointer;
+    transition: .2s;
+}
+.primary-button:hover, .secondary-button:hover{
+    background-color: var(--primary);
+    border: solid 2rem var(--primary);
+    transition: .2s;
+}
