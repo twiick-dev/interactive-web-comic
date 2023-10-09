@@ -10,6 +10,7 @@ html{
 :root{
     /*Backgrounds*/
     --background-image: url(https://discover.therookies.co/content/images/2022/09/games---Silke-Van-Der-Smissen-2.jpg);
+    --background-color: rgba(235, 233, 207, 0.1);
     /*Colors*/
     --white: #FFFFFF;
     --white-10: #ffffff1a;
@@ -44,6 +45,11 @@ html{
     background: var(--primary-dark);
     transition: .2s;
 }
+body{
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+}
 /*hr*/
 hr{
     margin: 10rem 0;
@@ -52,9 +58,6 @@ hr{
 }
 /*Styles*/
 .wellcome{
-    background-image: var(--background-image);
-    background-size: cover;
-    background-position: center;
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -84,10 +87,10 @@ hr{
     z-index: 2;
 }
 .message-borders.border-top{
-    top: -2rem;
+    top:  -20rem;
 }
 .message-borders.border-bottom{
-    bottom: -37rem;
+    bottom: -20rem;
     transform: rotate(180deg);
 }
 .message{
@@ -178,4 +181,196 @@ button{
     background-color: var(--primary);
     border: solid 2rem var(--primary);
     transition: .2s;
+}
+/*Comic*/
+.comic-container{
+    background-color: var(--background-color);
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: sepia(90%);;
+}
+.comic{
+    display: flex;
+    gap: 50rem;
+}
+.comic-page{
+    display: grid;
+    grid-template-columns: repeat(6, 160rem);
+    grid-template-rows: repeat(8, 160rem);
+    gap: 10rem;
+    position: relative;
+}
+.box{
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    position: relative;
+    border: solid 3rem black;
+    overflow: hidden;
+    filter: grayscale(1);
+    transition: 1s;
+}
+.box-1-1{
+    grid-column: span 1;
+    grid-row: span 1;
+}
+.box-1-2{
+    grid-column: span 1;
+    grid-row: span 2;
+}
+.box-2-1{
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.box-2-2{
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.box-2-4{
+    grid-column: span 2;
+    grid-row: span 4;
+}
+.box-3-2{
+    grid-column: span 3;
+    grid-row: span 2;
+}
+.box-4-2{
+    grid-column: span 4;
+    grid-row: span 2;
+}
+.box:hover{
+    filter: grayscale(0);
+    transition: 1s;
+}
+#box-1{
+    background-image: url('../assets/images/box-1.png');
+}
+#box-2{
+    background-image: url('../assets/images/box-2.jpg');
+}
+#box-3{
+    background-image: url('../assets/images/box-3.jpg');
+}
+#box-4{
+    background-image: url('../assets/images/box-4.png');
+}
+#box-5{
+    background-image: url('../assets/images/box-1.png');
+}
+#box-6{
+    background-image: url('../assets/images/box-2.jpg');
+}
+#box-7{
+    background-image: url('../assets/images/box-1.png');
+}
+#box-8{
+    background-image: url('../assets/images/box-1.png');
+}
+#box-9{
+    background-image: url('../assets/images/box-1.png');
+}
+#box-10{
+    background-image: url('../assets/images/box-1.png');
+}
+#box-11{
+    background-image: url('../assets/images/box-1.png');
+}
+#box-12{
+    background-image: url('../assets/images/box-2.jpg');
+}
+#box-13{
+    background-image: url('../assets/images/box-3.jpg');
+}
+#box-14{
+    background-image: url('../assets/images/box-4.png');
+}
+#box-15{
+    background-image: url('../assets/images/box-1.png');
+}
+#box-16{
+    background-image: url('../assets/images/box-2.jpg');
+}
+.box audio{
+    display: none;
+}
+.box .dialogues{
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.box .dialogues img{
+    width: 100rem;
+    position: absolute;
+    transition: 1s;
+}
+.box:nth-child(1) .dialogues img:nth-child(1){
+    left: -200rem;
+    top: 0;
+    transform: rotateZ(-20deg);
+}
+.box:nth-child(1) .dialogues img:nth-child(2){
+    right: -200rem;
+    top: 0;
+    transform: rotateZ(20deg);
+}
+.box:nth-child(1):hover .dialogues img:nth-child(1){
+    top: 20%;
+    left: 10%;
+    transform: rotateZ(-20deg);
+}
+.box:nth-child(1):hover .dialogues img:nth-child(2){
+    top: 20%;
+    right: 10%;
+    transform: rotateZ(20deg);
+}
+
+@media (max-width: 2100px){
+    .comic-page{
+        grid-template-columns: repeat(6, 130rem);
+        grid-template-rows: repeat(8, 130rem);
+    }
+}
+@media (max-width: 1921px){
+    .comic-page{
+        grid-template-columns: repeat(6, 110rem);
+        grid-template-rows: repeat(8, 110rem);
+    }
+}
+@media (max-width: 1601px){
+    .comic-page{
+        grid-template-columns: repeat(6, 80rem);
+        grid-template-rows: repeat(8, 80rem);
+    }
+}
+@media (max-width: 1281px){
+    .comic-page{
+        grid-template-columns: repeat(6, 60rem);
+        grid-template-rows: repeat(8, 60rem);
+    }
+}
+@media (max-width: 900px){
+    .comic-container{
+        height: auto;
+    }
+    .comic{
+        padding: 20rem 0;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .comic-page{
+        grid-template-columns: repeat(6, 110rem);
+        grid-template-rows: repeat(8, 110rem);
+    }
+}
+@media (max-width: 750px){
+    .comic-page{
+        grid-template-columns: repeat(6, 45rem);
+        grid-template-rows: repeat(8, 45rem);
+    }
 }
