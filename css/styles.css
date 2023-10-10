@@ -11,6 +11,7 @@ html{
     /*Backgrounds*/
     --background-image: url(https://discover.therookies.co/content/images/2022/09/games---Silke-Van-Der-Smissen-2.jpg);
     --background-color: rgba(235, 233, 207, 0.1);
+    --background-color: rgba(235, 233, 207, 0);
     /*Colors*/
     --white: #FFFFFF;
     --white-10: #ffffff1a;
@@ -23,12 +24,11 @@ html{
     --secondary: #DFBC4A;
     /*Fonts*/
     --bebas: 'Bebas Neue', sans-serif;
-    --castoro: 'Castoro', serif;
+    --gloria: 'Gloria Hallelujah', cursive;
     --lato: 'Lato', sans-serif;
     --satisfy: 'Satisfy', cursive;
     /*Gradient*/
     --gray: rgba(214,207,182,1);
-
 }
 /*Scroll bar*/
 ::-webkit-scrollbar{
@@ -45,18 +45,18 @@ html{
     background: var(--primary-dark);
     transition: .2s;
 }
+/*general styles*/
 body{
     background-image: var(--background-image);
     background-size: cover;
     background-position: center;
 }
-/*hr*/
 hr{
     margin: 10rem 0;
     border: none;
     border-bottom: solid 1rem var(--white);
 }
-/*Styles*/
+/*wellcome message*/
 .wellcome{
     width: 100vw;
     height: 100vh;
@@ -65,10 +65,9 @@ hr{
 }
 .message-container{
     background-color: var(--black-30);
-    width: 500rem;
-    max-width: 500rem;
-    height: 500rem;
-    max-height: 500rem;
+    width: 30%;
+    max-width: 30%;
+    aspect-ratio: 1/1;
     position: relative;
     animation: openMessage 1.5s ease-in-out 1;
 }
@@ -96,10 +95,10 @@ hr{
 .message{
     width: 100%;
     height: 100%;
-    padding: 50rem 60rem;
+    padding: 80rem 70rem;
     display: flex;
     flex-direction: column;
-    gap: 12rem;
+    gap: 16rem;
     backdrop-filter: blur(4rem);
     overflow-x: hidden;
     overflow-y: scroll;
@@ -130,6 +129,9 @@ hr{
     display: flex;
     gap: 20rem;
 }
+.message .list p span{
+    font-size: 20rem;
+}
 .message h1{
     color: var(--white);
     font-family: var(--bebas);
@@ -138,13 +140,14 @@ hr{
 .message p{
     color: var(--white);
     font-family: var(--lato);
-    font-size: 16rem;
+    font-size: 20rem;
     font-weight: 300;
 }
 .message p.quote{
     width: 100%;
+    margin-top: 10px;
     padding: 20rem;
-    font-size: 14rem;
+    font-size: 18rem;
     text-align: center;
     border: dashed 1rem var(--white);
 }
@@ -154,7 +157,10 @@ hr{
 }
 .message p.sign span:nth-child(1){
     font-family: var(--satisfy);
-    font-size: 28rem;
+    font-size: 36rem;
+}
+.message p.sign span:nth-child(2){
+    font-size: 20px;
 }
 .buttons{
     margin-top: 20rem;
@@ -167,7 +173,8 @@ hr{
 button{
     background: none;
     width: 250rem;
-    height: 40rem;
+    height: 50rem;
+    font-size: 20rem;
     border: solid 2rem transparent;
 }
 .primary-button, .secondary-button{
@@ -184,18 +191,26 @@ button{
 }
 /*Comic*/
 .comic-container{
-    background-color: var(--background-color);
     width: 100%;
     height: 100vh;
     display: none;
     justify-content: center;
     align-items: center;
-    backdrop-filter: sepia(90%);;
+}
+.comic-container.unread{
+    background-color: var(--background-color-0);
+    backdrop-filter: sepia(0%);
+}
+.comic-container.reading{
+    background-color: var(--background-color-100);
+    backdrop-filter: sepia(90%);
+    transition: 2s;
 }
 .comic{
     display: flex;
     gap: 50rem;
 }
+/*comic pages*/
 .comic-page{
     display: grid;
     grid-template-columns: repeat(6, 160rem);
@@ -203,6 +218,7 @@ button{
     gap: 10rem;
     position: relative;
 }
+/*comic container*/
 .box{
     background-size: cover;
     background-position: center;
@@ -299,62 +315,333 @@ button{
 .box audio{
     display: none;
 }
+/*comic dialogues*/
 .box .dialogues{
     width: 100%;
     height: 100%;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-.box .dialogues img{
-    width: 100rem;
+.box .dialogues figure{
+    width: 240rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     transition: 1s;
 }
-.box:nth-child(1) .dialogues img:nth-child(1){
+.box .dialogues figure.left-dialogue{
     left: -200rem;
-    top: 0;
-    transform: rotateZ(-20deg);
+    bottom: -25%;
+    transform: rotateZ(0);
 }
-.box:nth-child(1) .dialogues img:nth-child(2){
+.box .dialogues figure.right-dialogue{
     right: -200rem;
-    top: 0;
-    transform: rotateZ(20deg);
+    bottom: -25%;
+    transform: rotateZ(0);
 }
-.box:nth-child(1):hover .dialogues img:nth-child(1){
-    top: 20%;
+.box .dialogues figure.top-left-dialogue,
+.box .dialogues figure.top-right-dialogue{
+    z-index: 2;
+}
+.box .dialogues figure.bottom-left-dialogue,
+.box .dialogues figure.bottom-right-dialogue{
+    z-index: 1;
+}
+/*Comic dialogue animations*/
+#box-1:hover .dialogues figure.top-left-dialogue{
+    bottom: 45%;
     left: 10%;
-    transform: rotateZ(-20deg);
 }
-.box:nth-child(1):hover .dialogues img:nth-child(2){
-    top: 20%;
+#box-1:hover .dialogues figure.top-right-dialogue{
+    bottom: 45%;
     right: 10%;
-    transform: rotateZ(20deg);
 }
-
-@media (max-width: 2100px){
+#box-1:hover .dialogues figure.bottom-left-dialogue{
+    bottom: 10%;
+    left: 10%;
+}
+#box-2:hover .dialogues figure.top-left-dialogue{
+    bottom: 60%;
+    left: 0%;
+}
+#box-3:hover .dialogues figure.top-left-dialogue{
+    bottom: 65%;
+    left: 30%;
+}
+#box-4:hover .dialogues figure.top-left-dialogue{
+    bottom: 55%;
+    left: 20%;
+}
+#box-6:hover .dialogues figure.top-left-dialogue{
+    bottom: 60%;
+    left: 0%;
+}
+#box-7:hover .dialogues figure.top-left-dialogue{
+    bottom: 55%;
+    left: 0;
+}
+#box-9:hover .dialogues figure.top-left-dialogue{
+    bottom: 80%;
+    left: 30%;
+}
+#box-9:hover .dialogues figure.top-right-dialogue{
+    bottom: 55%;
+    left: 30%;
+}
+#box-9:hover .dialogues figure.bottom-left-dialogue{
+    bottom: 30%;
+    left: 0;
+}
+#box-9:hover .dialogues figure.bottom-right-dialogue{
+    bottom: 5%;
+    left: 0;
+}
+#box-10:hover .dialogues figure.top-left-dialogue{
+    bottom: 45%;
+    left: 10%;
+}
+#box-10:hover .dialogues figure.top-right-dialogue{
+    bottom: 45%;
+    right: 10%;
+}
+#box-10:hover .dialogues figure.bottom-left-dialogue{
+    bottom: 10%;
+    left: 10%;
+}
+#box-10:hover .dialogues figure.bottom-right-dialogue{
+    bottom: 10%;
+    right: 10%;
+}
+#box-11:hover .dialogues figure.top-left-dialogue{
+    bottom: 45%;
+    left: 10%;
+}
+#box-11:hover .dialogues figure.top-right-dialogue{
+    bottom: 45%;
+    right: 10%;
+}
+#box-11:hover .dialogues figure.bottom-left-dialogue{
+    bottom: 10%;
+    left: 10%;
+}
+#box-11:hover .dialogues figure.bottom-right-dialogue{
+    bottom: 10%;
+    right: 10%;
+}
+#box-12:hover .dialogues figure.top-left-dialogue{
+    bottom: 60%;
+    left: 0%;
+}
+#box-13:hover .dialogues figure.top-left-dialogue{
+    bottom: 60%;
+    left: 0%;
+}
+#box-14:hover .dialogues figure.top-left-dialogue{
+    bottom: 60%;
+    left: 0%;
+}
+#box-16:hover .dialogues figure.top-left-dialogue{
+    bottom: 60%;
+    left: 0%;
+}
+/*Comic dialogue images*/
+.box .dialogues figure img{
+    width: 100%;
+}
+.box .dialogues figure p{
+    width: 70%;
+    font-family: var(--gloria);
+    font-size: 13rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    line-height: 130%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.box .dialogues figure.top-left-dialogue p{
+    transform: translateX(-50%) translateY(-50%) rotate(2deg);
+}
+.box .dialogues figure.bottom-left-dialogue p{
+    transform: translateX(-50%) translateY(-50%) rotate(-2deg);
+}
+.box .dialogues figure.top-right-dialogue p{
+    transform: translateX(-50%) translateY(-50%) rotate(4deg);
+}
+.box .dialogues figure.bottom-right-dialogue p{
+    transform: translateX(-50%) translateY(-50%) rotate(4deg);
+}
+/*2560×1440*/
+@media (max-width: 2561px){
+    .message{
+        padding: 100rem 70rem;
+    }
+    .message p{
+        font-size: 24rem;
+    }
+    .message p.quote{
+        font-size: 20rem;
+    }
+    .message .list p span{
+        font-size: 24rem;
+    }
+    .message p.sign span:nth-child(1){
+        font-size: 42rem;
+    }
+    .message p.sign span:nth-child(2){
+        font-size: 24px;
+    }
+    button{
+        height: 60rem;
+        font-size: 24rem;
+    }
     .comic-page{
         grid-template-columns: repeat(6, 130rem);
         grid-template-rows: repeat(8, 130rem);
     }
+    .box .dialogues figure{
+        width: 190rem;
+    }
+    .message-container{
+        width: 30%;
+        max-width: 30%;
+    }
 }
+/*1920×1080*/
 @media (max-width: 1921px){
+    .message-container{
+        width: 30%;
+        max-width: 30%;
+    }
+    .message{
+        padding: 70rem 50rem;
+    }
+    .message p{
+        font-size: 16rem;
+    }
+    .message p.quote{
+        font-size: 14rem;
+    }
+    .message .list p span{
+        font-size: 16rem;
+    }
+    .message p.sign span:nth-child(1){
+        font-size: 32rem;
+    }
+    .message p.sign span:nth-child(2){
+        font-size: 16px;
+    }
+    button{
+        height: 50rem;
+        font-size: 16rem;
+    }
     .comic-page{
         grid-template-columns: repeat(6, 110rem);
         grid-template-rows: repeat(8, 110rem);
     }
+    .box .dialogues figure{
+        width: 150rem;
+    }
+    .box .dialogues figure p{
+        font-size: 9rem;
+    }
 }
+/*1600x900*/
 @media (max-width: 1601px){
+    button{
+        height: 46rem;
+        font-size: 16rem;
+    }
     .comic-page{
         grid-template-columns: repeat(6, 80rem);
         grid-template-rows: repeat(8, 80rem);
     }
+    .box .dialogues figure{
+        width: 120rem;
+    }
+    .box .dialogues figure p{
+        font-size: 7rem;
+    }
 }
-@media (max-width: 1281px){
+/*1536×864*/
+@media (max-width: 1537px){
+    .message{
+        padding: 60rem 50rem;
+    }
+    button{
+        height: 44rem;
+        font-size: 16rem;
+    }
+    .message-container{
+        width: 30%;
+        max-width: 30%;
+    }
     .comic-page{
         grid-template-columns: repeat(6, 60rem);
         grid-template-rows: repeat(8, 60rem);
     }
+    .box .dialogues figure{
+        width: 90rem;
+    }
+    .box .dialogues figure p{
+        font-size: 6rem;
+    }
 }
-@media (max-width: 900px){
+/*1440×900*/
+@media (max-width: 1441px){
+    .message-container{
+        width: 40%;
+        max-width: 40%;
+    }
+    .comic-page{
+        grid-template-columns: repeat(6, 60rem);
+        grid-template-rows: repeat(8, 60rem);
+    }
+    .box .dialogues figure{
+        width: 90rem;
+    }
+    .box .dialogues figure p{
+        font-size: 6rem;
+    }
+}
+/*1366x768*/
+@media (max-width: 1367px){
+    .message{
+        padding: 50rem 40rem;
+    }
+    .message p.sign span:nth-child(1){
+        font-size: 32rem;
+    }
+    .message p.sign span:nth-child(2){
+        font-size: 16px;
+    }
+    .buttons{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .message-container{
+        width: 30%;
+        max-width: 30%;
+    }
+    .comic-page{
+        grid-template-columns: repeat(6, 60rem);
+        grid-template-rows: repeat(8, 60rem);
+    }
+    .box .dialogues figure{
+        width: 90rem;
+    }
+    .box .dialogues figure p{
+        font-size: 6rem;
+    }
+}
+/*1280x720*/
+@media (max-width: 1281px){
+    .message-container{
+        width: 35%;
+        max-width: 35%;
+    }
     .comic-container{
         height: auto;
     }
@@ -367,10 +654,65 @@ button{
         grid-template-columns: repeat(6, 110rem);
         grid-template-rows: repeat(8, 110rem);
     }
+    .box .dialogues figure{
+        width: 160rem;
+    }
+    .box .dialogues figure p{
+        font-size: 11rem;
+    }
 }
-@media (max-width: 750px){
+/*810x1080*/
+@media (max-width: 811px){
+    .message-container{
+        width: 60%;
+        max-width: 60%;
+    }
+    .comic-page{
+        grid-template-columns: repeat(6, 60rem);
+        grid-template-rows: repeat(8, 60rem);
+    }
+    .box .dialogues figure{
+        width: 70rem;
+    }
+    .box .dialogues figure p{
+        font-size: 4rem;
+    }
+}
+/*415×844*/
+@media (max-width: 416px){
+    .message-container{
+        width: 90vw;
+        max-width: 90vw;
+        height: 90vw;
+        max-height: 90vw;
+    }
     .comic-page{
         grid-template-columns: repeat(6, 45rem);
         grid-template-rows: repeat(8, 45rem);
+    }
+    .box .dialogues figure{
+        width: 70rem;
+    }
+    .box .dialogues figure p{
+        font-size: 4rem;
+    }
+}
+/*360x800*/
+@media (max-width: 361px){
+    .message-container{
+        width: 90vw;
+        max-width: 90vw;
+        height: 90vw;
+        max-height: 90vw;
+    }
+    .comic-page{
+        grid-template-columns: repeat(6, 45rem);
+        grid-template-rows: repeat(8, 45rem);
+    }
+    .box .dialogues figure{
+        width: 70rem;
+    }
+    .box .dialogues figure p{
+        font-size: 4rem;
     }
 }
