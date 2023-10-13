@@ -22,7 +22,12 @@ let audio13=document.querySelector('#audio-13');
 let audio14=document.querySelector('#audio-14');
 let audio15=document.querySelector('#audio-15');
 let audio16=document.querySelector('#audio-16');
-let audioPlaying=
+let audioPlaying;
+let popup=document.querySelector('#popup');
+let popupImage=document.querySelector('#popup-image');
+let popupButton=document.querySelector('#popup-button');
+
+let intervalId;
 //swow comic whe tap comic button
 comicButton.addEventListener('click', function() {
     comicContainer.style.display='flex'
@@ -65,3 +70,38 @@ comicImages.forEach( (comicImage) => {
         clearInterval(intervalId);
     });
 });
+comicImages.forEach( (comicImage) => {
+    comicImage.addEventListener('click', function() {
+        switch (comicImage.id){
+            case 'box-1':activePopup('box-1.png', audio1); break;
+            case 'box-2':activePopup('box-2.png', audio2); break;
+            case 'box-3':activePopup('box-3.png', audio3); break;
+            case 'box-4':activePopup('box-4.png', audio4); break;
+            case 'box-5':activePopup('box-5.png', audio5); break;
+            case 'box-6':activePopup('box-6.png', audio6); break;
+            case 'box-7':activePopup('box-7.png', audio7); break;
+            case 'box-8':activePopup('box-8.png', audio8); break;
+            case 'box-9':activePopup('box-9.png', audio9); break;
+            case 'box-10':activePopup('box-10.png', audio10); break;
+            case 'box-11':activePopup('box-11.png', audio11); break;
+            case 'box-12':activePopup('box-12.png', audio12); break;
+            case 'box-13':activePopup('box-13.png', audio13); break;
+            case 'box-14':activePopup('box-14.png', audio14); break;
+            case 'box-15':activePopup('box-15.png', audio15); break;
+            case 'box-16':activePopup('box-16.png', audio16); break;
+        }
+    });
+});
+popupButton.addEventListener('click',()=>{
+    popup.style.display='none'
+    audioPlaying.pause()
+})
+function activePopup(image, audio){
+    audioPlaying=audio
+    popup.style.display='flex'
+    popupImage.src = "../assets/images/"+image;
+    setTimeout(() => {
+        audioPlaying.currentTime=0
+        audioPlaying.play()
+    }, 100);
+}

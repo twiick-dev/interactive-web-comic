@@ -9,7 +9,7 @@ html{
 }
 :root{
     /*Backgrounds*/
-    --background-image: url(https://discover.therookies.co/content/images/2022/09/games---Silke-Van-Der-Smissen-2.jpg);
+    --background-image: url(https://androidwidgetcenter.com/wp-content/uploads/2020/08/Download-Space-Defender-Shooter-Free.png);
     --background-color: rgba(235, 233, 207, 0.1);
     --background-color: rgba(235, 233, 207, 0);
     /*Colors*/
@@ -18,6 +18,7 @@ html{
     --white-50: #ffffffa0;
     --black: #000000;
     --black-30: #0000006d;
+    --black-50: #0000008e;
     --primary:#DFBC4A;
     --primary-30:#DFBC4A4A;
     --primary-dark:hsl(46, 70%, 48%);
@@ -268,56 +269,56 @@ button{
     background-image: url('../assets/images/box-1.png');
 }
 #box-2{
-    background-image: url('../assets/images/box-2.jpg');
+    background-image: url('../assets/images/box-2.png');
 }
 #box-3{
-    background-image: url('../assets/images/box-3.jpg');
+    background-image: url('../assets/images/box-3.png');
 }
 #box-4{
     background-image: url('../assets/images/box-4.png');
 }
 #box-5{
-    background-image: url('../assets/images/box-1.png');
+    background-image: url('../assets/images/box-5.png');
 }
 #box-6{
-    background-image: url('../assets/images/box-2.jpg');
+    background-image: url('../assets/images/box-6.png');
 }
 #box-7{
-    background-image: url('../assets/images/box-1.png');
+    background-image: url('../assets/images/box-7.png');
 }
 #box-8{
-    background-image: url('../assets/images/box-1.png');
+    background-image: url('../assets/images/box-8.png');
 }
 #box-9{
-    background-image: url('../assets/images/box-1.png');
+    background-image: url('../assets/images/box-9.png');
 }
 #box-10{
-    background-image: url('../assets/images/box-1.png');
+    background-image: url('../assets/images/box-10.png');
 }
 #box-11{
-    background-image: url('../assets/images/box-1.png');
+    background-image: url('../assets/images/box-11.png');
 }
 #box-12{
-    background-image: url('../assets/images/box-2.jpg');
+    background-image: url('../assets/images/box-12.png');
 }
 #box-13{
-    background-image: url('../assets/images/box-3.jpg');
+    background-image: url('../assets/images/box-13.png');
 }
 #box-14{
-    background-image: url('../assets/images/box-4.png');
+    background-image: url('../assets/images/box-14.png');
 }
 #box-15{
-    background-image: url('../assets/images/box-1.png');
+    background-image: url('../assets/images/box-15.png');
 }
 #box-16{
-    background-image: url('../assets/images/box-2.jpg');
+    background-image: url('../assets/images/box-16.png');
 }
 .box audio{
     display: none;
 }
 /*comic dialogues*/
 .box .dialogues{
-    width: 100%;
+    width: 130%;
     height: 100%;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
@@ -330,14 +331,26 @@ button{
     transition: 1s;
 }
 .box .dialogues figure.left-dialogue{
-    left: -200rem;
-    bottom: -25%;
     transform: rotateZ(0);
 }
 .box .dialogues figure.right-dialogue{
-    right: -200rem;
-    bottom: -25%;
     transform: rotateZ(0);
+}
+.box .dialogues figure.top-left-dialogue{
+    top: -200rem;
+    left: -25%;
+}
+.box .dialogues figure.top-right-dialogue{
+    top: -200rem;
+    right: -25%;
+}
+.box .dialogues figure.bottom-left-dialogue{
+    bottom: -200px;
+    left: -25%;
+}
+.box .dialogues figure.bottom-right-dialogue{
+    bottom: -200px;
+    right: -25%;
 }
 .box .dialogues figure.top-left-dialogue,
 .box .dialogues figure.top-right-dialogue{
@@ -349,104 +362,116 @@ button{
 }
 /*Comic dialogue animations*/
 #box-1:hover .dialogues figure.top-left-dialogue{
-    bottom: 45%;
+    top: 16%;
     left: 10%;
 }
 #box-1:hover .dialogues figure.top-right-dialogue{
-    bottom: 45%;
+    top: 16%;
     right: 10%;
 }
 #box-1:hover .dialogues figure.bottom-left-dialogue{
-    bottom: 10%;
+    bottom: -10%;
     left: 10%;
 }
-#box-2:hover .dialogues figure.top-left-dialogue{
-    bottom: 60%;
-    left: 0%;
+#box-2 :hover.dialogues figure.top-left-dialogue{
+    top: 16%;
+    left: -3%;
 }
 #box-3:hover .dialogues figure.top-left-dialogue{
-    bottom: 65%;
+    top: 31%;
     left: 30%;
 }
-#box-4:hover .dialogues figure.top-left-dialogue{
-    bottom: 55%;
-    left: 20%;
+#box-4:hover .dialogues figure.top-right-dialogue{
+    top: 0%;
+    right: 24%;
 }
-#box-6:hover .dialogues figure.top-left-dialogue{
-    bottom: 60%;
-    left: 0%;
+#box-6:hover .dialogues figure.top-right-dialogue{
+    top: -4%;
+    right: 0%;
 }
 #box-7:hover .dialogues figure.top-left-dialogue{
-    bottom: 55%;
-    left: 0;
+    top: 12%;
+    left: 14%;
 }
 #box-9:hover .dialogues figure.top-left-dialogue{
-    bottom: 80%;
-    left: 30%;
+    top: -5%;
+    left: 18%;
 }
 #box-9:hover .dialogues figure.top-right-dialogue{
-    bottom: 55%;
-    left: 30%;
+    top: 11%;
+    right: 7%;
 }
 #box-9:hover .dialogues figure.bottom-left-dialogue{
-    bottom: 30%;
-    left: 0;
+    bottom: 24%;
+    left: 32%;
 }
 #box-9:hover .dialogues figure.bottom-right-dialogue{
-    bottom: 5%;
-    left: 0;
+    bottom: 47%;
+    right: 0%;
 }
 #box-10:hover .dialogues figure.top-left-dialogue{
-    bottom: 45%;
-    left: 10%;
+    top: 5%;
+    left:9%;
 }
 #box-10:hover .dialogues figure.top-right-dialogue{
-    bottom: 45%;
-    right: 10%;
+    top: 5%;
+    right:9%;
 }
 #box-10:hover .dialogues figure.bottom-left-dialogue{
-    bottom: 10%;
-    left: 10%;
+    bottom: -6%;
+    left: 9%;
 }
 #box-10:hover .dialogues figure.bottom-right-dialogue{
-    bottom: 10%;
-    right: 10%;
+    bottom: -6%;
+    right: 9%;
 }
 #box-11:hover .dialogues figure.top-left-dialogue{
-    bottom: 45%;
-    left: 10%;
+    top: 5%;
+    left:9%;
 }
 #box-11:hover .dialogues figure.top-right-dialogue{
-    bottom: 45%;
-    right: 10%;
+    top: 5%;
+    right:9%;
 }
 #box-11:hover .dialogues figure.bottom-left-dialogue{
-    bottom: 10%;
-    left: 10%;
+    bottom: -6%;
+    left: 9%;
 }
 #box-11:hover .dialogues figure.bottom-right-dialogue{
-    bottom: 10%;
-    right: 10%;
+    bottom: -6%;
+    right: 9%;
 }
 #box-12:hover .dialogues figure.top-left-dialogue{
-    bottom: 60%;
+    top: -4%;
     left: 0%;
 }
 #box-13:hover .dialogues figure.top-left-dialogue{
-    bottom: 60%;
+    top: -4%;
     left: 0%;
 }
 #box-14:hover .dialogues figure.top-left-dialogue{
-    bottom: 60%;
+    top: -4%;
     left: 0%;
 }
-#box-16:hover .dialogues figure.top-left-dialogue{
-    bottom: 60%;
-    left: 0%;
+#box-15:hover .dialogues figure.top-left-dialogue{
+    top: 2%;
+    left: 10%;
+}
+#box-15:hover .dialogues figure.bottom-left-dialogue{
+    bottom: 0%;
+    left: 1%;
+}
+#box-15:hover .dialogues figure.top-right-dialogue{
+    top: 8%;
+    right: 0%;
+}
+#box-15:hover .dialogues figure.bottom-right-dialogue{
+    bottom: 20%;
+    right: 31%;
 }
 /*Comic dialogue images*/
 .box .dialogues figure img{
-    width: 100%;
+    width: 110%;
 }
 .box .dialogues figure p{
     width: 70%;
@@ -471,6 +496,37 @@ button{
 }
 .box .dialogues figure.bottom-right-dialogue p{
     transform: translateX(-50%) translateY(-50%) rotate(4deg);
+}
+#popup{
+    background-color: var(--black-50);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(4px);
+    z-index: 3;
+}
+#popup-image{
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 12rem;
+}
+#popup-button{
+    background-color: var(--primary);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-family: var(--lato);
+    font-size: 24rem;
+    font-weight: 900;
+    border: solid 2px var(--black);
+    border-radius: 50%;
 }
 /*2560×1440*/
 @media (max-width: 2561px){
