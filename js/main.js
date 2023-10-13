@@ -56,14 +56,16 @@ comicImages.forEach( (comicImage) => {
             case 'box-15': audioPlaying=audio15; break;
             case 'box-16': audioPlaying=audio16; break;
         }
-        intervalId = setInterval((time=0) => {
-            time++;
-            if (time >= 1) {
-                audioPlaying.currentTime = 0;
+          if(window.innerWidth >= 1281){
+            intervalId = setInterval((time=0) => {
+                time++;
+                if (time >= 1) {
+                    audioPlaying.currentTime = 0;
                 audioPlaying.play()
-                clearInterval(intervalId);
-            }
-          }, 500);
+                    clearInterval(intervalId);
+                }
+            }, 500);
+        }
     });
     comicImage.addEventListener('mouseleave', function() {
         audioPlaying.pause()
