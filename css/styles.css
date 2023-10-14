@@ -9,7 +9,7 @@ html{
 }
 :root{
     /*Backgrounds*/
-    --background-image: url(https://androidwidgetcenter.com/wp-content/uploads/2020/08/Download-Space-Defender-Shooter-Free.png);
+    --background-image: url(../assets/images/background.jpg);
     --background-color: rgba(235, 233, 207, 0.1);
     --background-color: rgba(235, 233, 207, 0);
     /*Colors*/
@@ -121,6 +121,28 @@ hr{
       opacity: 1;
     }
 }
+#message-audio{
+    display: none;
+}
+#message-player{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 20rem;
+}
+#message-player span{
+    color: white;
+}
+#message-player-text{
+    width: 40rem;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px var(--white);
+    border-radius: 50%;
+}
 .message .list{
     display: flex;
     flex-direction: column;
@@ -200,11 +222,11 @@ button{
 }
 .comic-container.unread{
     background-color: var(--background-color-0);
-    backdrop-filter: sepia(0%);
+    backdrop-filter: grayscale(0%);
 }
 .comic-container.reading{
     background-color: var(--background-color-100);
-    backdrop-filter: sepia(90%);
+    backdrop-filter: grayscale(90%);
     transition: 2s;
 }
 .comic{

@@ -3,6 +3,7 @@ let wellcomeContainer=document.querySelector('.wellcome');
 let comicContainer=document.querySelector('.comic-container');
 //buttons
 let comicButton=document.querySelector('.comic-button');
+let creditosButton=document.querySelector('.creditos-button');
 //comic images
 let comicImages=document.querySelectorAll('.box');
 //audios
@@ -32,9 +33,13 @@ let intervalId;
 comicButton.addEventListener('click', function() {
     comicContainer.style.display='flex'
     wellcomeContainer.style.display='none'
+    messageAudio.pause()
     setTimeout(()=>{
         comicContainer.classList.add('reading')
     }, 100)
+});
+creditosButton.addEventListener('click', function() {
+    alert('Este sitio ha diso creado por Brahyam Luna, como reto creativo para generation')
 });
 comicImages.forEach( (comicImage) => {
     comicImage.addEventListener('mouseenter', function() {
@@ -107,3 +112,21 @@ function activePopup(image, audio){
         audioPlaying.play()
     }, 100);
 }
+
+let messageButtom=document.querySelector('#message-player')
+let messageAudio=document.querySelector('#message-audio')
+let messagePlayerText=document.querySelector('#message-player-text')
+let play=0
+messageButtom.addEventListener('click',()=>{
+    console.log('click'+play);
+    if(play==0){
+        play=1
+        messageAudio.play()
+        messagePlayerText.innerHTML='❙❙'
+    }
+    else{
+        play=0
+        messageAudio.pause()
+        messagePlayerText.innerHTML='▶'
+    }
+})
